@@ -80,9 +80,9 @@ function App() {
           <td><BotaoInterativo className="estilo_butao"nome="João Filho"/></td>
         </tr>
         <tr>
-          <td><BotaoInterativo className="estilo_butao"nome="Zé Davi"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Mariana Barroso"/></td>
           <td><BotaoInterativo className="estilo_butao"nome="Marlon"/></td>
+          <td><BotaoInterativo className="estilo_butao"nome="Mariana Barroso"/></td>
+          <td><BotaoInterativo className="estilo_butao"nome="Zé Davi"/></td>
           <td><BotaoInterativo className="estilo_butao"nome="Francislayne"/></td>
           <td><BotaoInterativo className="estilo_butao"nome="Matheus Barreto"/></td>
         </tr>
