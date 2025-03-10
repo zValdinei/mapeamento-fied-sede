@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 function BotaoInterativo({ estilo_butao, nome,...props }) {
-  const [cor, setCor] = useState("#03d92d");
+  const [cor, setCor] = useState("#cd1406");
   const trocaCor = () => {
-    setCor((prevCor) => (prevCor === "#03d92d" ? "#cd1406" : "#03d92d"));
+    setCor((prevCor) => (prevCor === "#cd1406" ? "#03d92d" : "#cd1406"));
   };
 
   return (
