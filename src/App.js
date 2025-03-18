@@ -67,7 +67,7 @@ function App() {
         </tr>
         <tr>
           <td><BotaoInterativo className="estilo_butao"nome="Luiza Oliveira"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Gabriel Costa"/></td>
+          <td><BotaoInterativo className="estilo_butao"nome="Matheus Meneses"/></td>
           <td></td>
           <td><BotaoInterativo className="estilo_butao"nome="Valéria"/></td>
           <td><BotaoInterativo className="estilo_butao"nome="Valdinei"/></td>
