@@ -103,6 +103,7 @@ function App() {
         </tr>
         <tr>
           <td><BotaoInterativo className="estilo_butao"nome="Thalia Araujo"/></td>
+          <td><BotaoInterativo className="estilo_butao"nome="Gabriel Costa"/></td>
         </tr>
         </table>
         <div>
