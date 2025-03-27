@@ -86,35 +86,19 @@ function App() {
           <td><BotaoInterativo className="estilo_butao"nome="Francislayne"/></td>
           <td><BotaoInterativo className="estilo_butao"nome="Matheus Barreto"/></td>
         </tr>
-        <h2>Novatos</h2>
+        <h4>Novatos</h4>
         <tr>
           <td><BotaoInterativo className="estilo_butao"nome="Lucélia"/></td>
-        </tr>
-        <tr>
           <td><BotaoInterativo className="estilo_butao"nome="Ana Júlia"/></td>
-        </tr>
-        <tr>
           <td><BotaoInterativo className="estilo_butao"nome="Maria Laiane"/></td>
-        </tr>
-        <tr>
           <td><BotaoInterativo className="estilo_butao"nome="Leticia de Oliveira"/></td>
-        </tr>
-        <tr>
           <td><BotaoInterativo className="estilo_butao"nome="Diêniffer"/></td>
         </tr>
         <tr>
           <td><BotaoInterativo className="estilo_butao"nome="Ana Gabriele"/></td>
-        </tr>
-        <tr>
           <td><BotaoInterativo className="estilo_butao"nome="Fenanda Eduarda"/></td>
-        </tr>
-        <tr>
           <td><BotaoInterativo className="estilo_butao"nome="Heloísa"/></td>
-        </tr>
-        <tr>
           <td><BotaoInterativo className="estilo_butao"nome="Jessica Martins"/></td>
-        </tr>
-        <tr>
           <td><BotaoInterativo className="estilo_butao"nome="Julia de Andrade"/></td>
         </tr>
         <tr>
