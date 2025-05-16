@@ -7,18 +7,18 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Acentos</h1>
+        <h1>Acentos - FIED SEDE</h1>
         <table>
         <tr>
           <td><BotaoInterativo className="estilo_butao" nome="Allana Souza" /></td>
-          <td><BotaoInterativo className="estilo_butao" nome="Brenda" /></td>
+          <td><BotaoInterativo className="estilo_butao" nome="Gabriel" /></td>
           <td>Corredor</td>
           <td></td>
           <td><BotaoInterativo className="estilo_butao"nome="Jennifer"/></td>
         </tr>
         <tr>
           <td><BotaoInterativo className="estilo_butao"nome="Vitoria Oliveira"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Erivaldo"/></td>
+          <td><BotaoInterativo className="estilo_butao"nome="Maria Beatriz"/></td>
           <td></td>
           <td><BotaoInterativo className="estilo_butao"nome="Raiane M."/></td>
           <td><BotaoInterativo className="estilo_butao"nome="Dalila"/></td>
@@ -27,7 +27,7 @@ function App() {
           <td><BotaoInterativo className="estilo_butao"nome="Karla Morais"/></td>
           <td><BotaoInterativo className="estilo_butao"nome="Antonio F."/></td>
           <td></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Maria Beatriz"/></td>
+          <td><BotaoInterativo className="estilo_butao"nome="Erivaldo"/></td>
           <td><BotaoInterativo className="estilo_butao"nome="Valter"/></td>
         </tr>
         <tr>
@@ -41,15 +41,15 @@ function App() {
           <td><BotaoInterativo className="estilo_butao"nome="Beatriz Mesquita"/></td>
           <td><BotaoInterativo className="estilo_butao"nome="Fernanda Lopes"/></td>
           <td></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Claúdio G."/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Vitoria Silva"/></td>
+          <td><BotaoInterativo className="estilo_butao"nome="Lara Kézia"/></td>
+          <td><BotaoInterativo className="estilo_butao"nome="Sofhia"/></td>
         </tr>
         <tr>
           <td><BotaoInterativo className="estilo_butao"nome="Maria Clara"/></td>
           <td><BotaoInterativo className="estilo_butao"nome="Lana Evelin"/></td>
           <td></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Lara Kézia"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Sofhia"/></td>
+          <td><BotaoInterativo className="estilo_butao"nome="Claudio G."/></td>
+          <td><BotaoInterativo className="estilo_butao"nome="Valdinei"/></td>
         </tr>
         <tr>
           <td><BotaoInterativo className="estilo_butao"nome="Marcos Vinicius"/></td>
@@ -70,7 +70,7 @@ function App() {
           <td><BotaoInterativo className="estilo_butao"nome="Henrique"/></td>
           <td></td>
           <td><BotaoInterativo className="estilo_butao"nome="Valéria"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Valdinei"/></td>
+          <td><BotaoInterativo className="estilo_butao"nome="Vitoria Silva"/></td>
         </tr>
         <tr>
           <td><BotaoInterativo className="estilo_butao"nome="Vitoria Braga"/></td>
@@ -103,7 +103,6 @@ function App() {
         </tr>
         <tr>
           <td><BotaoInterativo className="estilo_butao"nome="Thalia Araujo"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Gabriel Costa"/></td>
         </tr>
         </table>
         <div>
