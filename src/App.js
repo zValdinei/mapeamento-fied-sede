@@ -39,7 +39,7 @@ function App() {
         </tr>
         <tr>
           <td><BotaoInterativo className="estilo_butao"nome="Beatriz Mesquita"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="(Vazio)"/></td>
+          <td><BotaoInterativo className="estilo_butao"nome="Fernanda L."/></td>
           <td></td>
           <td><BotaoInterativo className="estilo_butao"nome="Lara Kézia"/></td>
           <td><BotaoInterativo className="estilo_butao"nome="Sofhia"/></td>
