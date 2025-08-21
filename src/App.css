@@ -43,6 +43,35 @@
   font-weight: bold;
 }
 
-tr{
-  margin-top: 5vmin;
+.novatos{
+  text-align: center;
+}
+
+.sala {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  margin: 5px;
+  margin-top: 0px;
+  
+}
+
+.celula {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.corredor {
+  width: 100%;
+  height: 60px;
+  background: transparent;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.novatos{
+  text-align: left;
 }

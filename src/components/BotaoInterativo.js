@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, {useState, useEffect } from "react";
 
 function BotaoInterativo({ estilo_butao, nome,...props }) {
-  const [cor, setCor] = useState("#03d92d");
+  const chaveLocalStorege = `botao-cor${nome}`
+  const [cor, setCor] = useState("#cd1406");
   const trocaCor = () => {
-    setCor((prevCor) => (prevCor === "#03d92d" ? "#cd1406" : "#03d92d"));
+    const novaCor = cor === "#cd1406" ? "#00b123ff" : "#cd1406"; 
+    setCor(novaCor);
+    localStorage.setItem(chaveLocalStorege, novaCor);
   };
+
+  useEffect(() =>{
+    const corSalva = localStorage.getItem(chaveLocalStorege);
+    if (corSalva){
+      setCor(corSalva);
+    }
+  }, [chaveLocalStorege])
 
   return (
     <button

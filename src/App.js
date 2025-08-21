@@ -1,95 +1,107 @@
-import logo from './logo.svg';
-import './App.css';
-import React, {useState} from 'react';
-import BotaoInterativo from './components/BotaoInterativo';
+import React, { useState } from "react";
+import BotaoInterativo from "./components/BotaoInterativo";
+import "./App.css";
 
 function App() {
+  const [nomes, setNomes] = useState([
+    ["Allana Souza", "Gabriel", null, null, "Jennifer"],
+    ["Vitoria Oliveira", "Maria Beatriz", null, "Raiane", "Dalila"],
+    ["Karla Morais", "Antonio F.", null, "Valter", "Erivaldo"],
+    ["Antonio L.", "Biatriz Sandes", null, "Eduarda", "Tainá Rocha"],
+    ["Beatriz Mesquita", "Fernanda L.", null, "Lara Kezia", "Sofhia"],
+    ["Maria Clara", "Lana Evelin", null, "Claudio G.", "Valdinei"],
+    ["Marcos Vinicius", "Letícia M.", null, "Grazy", "Victor Berlink"],
+    ["Maria Talia", "Alex Alves", null, "Heloiza", "Noara B."],
+    ["Thais Feitosa", "Ketlyn Melo", null, "Valeria", "Vitoria Silva"],
+    ["Vitoria Braga", "Taissa", null, "Lavinia", "João Filho"],
+    ["Marlon", "Mariana Barroso", "Zé Davi", "Francislayne", "Matheus Barreto"],
+  ]);
+
+  const [nomes2, setNomes2] = useState([
+    ["Lucelia", "Ana Julia", "Maria Laiane", "Leticia de Oliveira", "Diênnifer"],
+    ["Ana Gabriele", "Fernanda Eduarda", "Heloísa", "Jessica Martins", "Julia de Andrade"],
+    ["Thalia Araujo", "Pablo Augusto", "Kauê", "Gabriel de Lima", "Ronaldo Wendel"],
+    ["Vitor Farias", "Richardson Sousa"]
+  ]);
+
+  const [nomes3, setNomes3] = useState([
+    ["Maria Luiza", "Kailane Marinho", "Clecia Xavier", "Fábio F.", "Aloisio Morais"],
+    ["Eduarda Araujo", "Rogiane", "Edite"]
+  ]);
+
+  const [dragInfo, setDragInfo] = useState(null);
+
+  const handleDragStart = (grupo, row, col) => {
+    setDragInfo({ grupo, row, col });
+  };
+
+  const handleDrop = (grupo, row, col) => {
+    if (!dragInfo) return;
+
+    const getSetState = (grupo) => {
+      if (grupo === "nomes") return [nomes, setNomes];
+      if (grupo === "nomes2") return [nomes2, setNomes2];
+      if (grupo === "nomes3") return [nomes3, setNomes3];
+    };
+
+    const [listaOrig, setListaOrig] = getSetState(dragInfo.grupo);
+    const [listaDest, setListaDest] = getSetState(grupo);
+
+    // evita trocar com corredores
+    if (listaDest[row][col] === null) return;
+
+    // copia listas
+    const novaOrig = listaOrig.map((l) => [...l]);
+    const novaDest = listaDest.map((l) => [...l]);
+
+    // swap nomes
+    const temp = novaOrig[dragInfo.row][dragInfo.col];
+    novaOrig[dragInfo.row][dragInfo.col] = novaDest[row][col];
+    novaDest[row][col] = temp;
+
+    // salva estados
+    setListaOrig(novaOrig);
+    setListaDest(novaDest);
+
+    setDragInfo(null);
+  };
+
+  const renderGrid = (grupoNome, lista) => (
+    <div className="sala">
+      {lista.map((linha, i) =>
+        linha.map((nome, j) => (
+          <div key={`${grupoNome}-${i}-${j}`} className="celula">
+            {nome ? (
+              <div
+                draggable
+                onDragStart={() => handleDragStart(grupoNome, i, j)}
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={() => handleDrop(grupoNome, i, j)}
+              >
+                <BotaoInterativo className="estilo_butao" nome={nome} />
+              </div>
+            ) : (
+              <div className="corredor"></div>
+            )}
+          </div>
+        ))
+      )}
+    </div>
+  );
+
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Acentos</h1>
-        <table>
-        <tr>
-          <td><BotaoInterativo className="estilo_butao" nome="Biatriz Sandes" /></td>
-          <td><BotaoInterativo className="estilo_butao" nome="Brenda" /></td>
-          <td>Corredor</td>
-          <td><BotaoInterativo className="estilo_butao"nome="Vazio"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Jennifer"/></td>
-        </tr>
-        <tr>
-          <td><BotaoInterativo className="estilo_butao"nome="Vitoria Oliveira"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Erivaldo"/></td>
-          <td></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Raiane M."/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Dalila"/></td>
-        </tr>
-        <tr>
-          <td><BotaoInterativo className="estilo_butao"nome="Karla Morais"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Antonio F."/></td>
-          <td></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Beatriz"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Valter"/></td>
-        </tr>
-        <tr>
-          <td><BotaoInterativo className="estilo_butao"nome="Antonio L."/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Vitoria Silva"/></td>
-          <td></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Eduarda F."/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Tainá Rocha"/></td>
-        </tr>
-        <tr>
-          <td><BotaoInterativo className="estilo_butao"nome="Beatriz Mesquita"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Fernanda"/></td>
-          <td></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Claúdio G."/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Allana Souza"/></td>
-        </tr>
-        <tr>
-          <td><BotaoInterativo className="estilo_butao"nome="Maria Clara"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Lana Evelin"/></td>
-          <td></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Lara Kérzia"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Sofhia"/></td>
-        </tr>
-        <tr>
-          <td><BotaoInterativo className="estilo_butao"nome="Marcos Vinicius"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Letícia M."/></td>
-          <td></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Graziely"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Victor Berlink"/></td>
-        </tr>
-        <tr>
-          <td><BotaoInterativo className="estilo_butao"nome="Maria Talia"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Thais"/></td>
-          <td></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Heloiza"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Noara B."/></td>
-        </tr>
-        <tr>
-          <td><BotaoInterativo className="estilo_butao"nome="Luiza Oliveira"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Gabriel Costa"/></td>
-          <td></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Valéria"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Valdinei"/></td>
-        </tr>
-        <tr>
-          <td><BotaoInterativo className="estilo_butao"nome="Vitorya Braga"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Taissa"/></td>
-          <td></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Lavinia"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="João Filho"/></td>
-        </tr>
-        <tr>
-          <td><BotaoInterativo className="estilo_butao"nome="Zé Davi"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Mariana Barroso"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Marlon"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Francislayne"/></td>
-          <td><BotaoInterativo className="estilo_butao"nome="Matheus Barreto"/></td>
-        </tr>
-        </table>
-        <div>
-    </div>
-    
+        <h1>Acentos - FIED SEDE</h1>
+
+        <h3>Corredor</h3>
+        {renderGrid("nomes", nomes)}
+
+        <h3 class="novatos">Novatos</h3>
+        {renderGrid("nomes2", nomes2)}
+
+        <h3>1º Semestre</h3>
+        {renderGrid("nomes3", nomes3)}
       </header>
     </div>
   );
