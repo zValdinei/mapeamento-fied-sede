@@ -6,15 +6,15 @@ function App() {
   const [nomes, setNomes] = useState([
     ["Allana Souza", "Gabriel", null, null, "Jennifer"],
     ["Vitoria Oliveira", "Maria Beatriz", null, "Raiane", "Dalila"],
-    ["Antonio F.", "Vitoria Silva", null, "Erivaldo", "Valter Lima"],
-    ["Antonio L.", "Laviania", null, "Eduarda Farias", "Tainá Rocha"],
-    ["Beatriz Mesquita", "Lara Kezia", null, "Valéria Silva", "Sofhia"],
+    ["Karla Morais", "Antonio F.", null, "Valter", "Erivaldo"],
+    ["Antonio L.", "Biatriz Sandes", null, "Eduarda", "Tainá Rocha"],
+    ["Beatriz Mesquita", "Fernanda L.", null, "Lara Kezia", "Sofhia"],
     ["Maria Clara", "Lana Evelin", null, "Claudio G.", "Valdinei"],
-    ["Leticia M.", "Marcos Vinicius", null, "Grazy", "Victor Berlink"],
-    ["Maria Talia", "Biatriz Sandes", null, "Heloiza", "Noara B."],
-    ["Thais Feitosa", "(Vazio)", null, "Francislayne", "Alex Alves"],
-    ["Vitoria Braga", "Taissa", null, "(Vazio)", "João Filho"],
-    ["Marlon", "Mariana Barroso", "Zé Davi", "Ketlyn Melo", "Matheus Barreto"],
+    ["Marcos Vinicius", "Letícia M.", null, "Grazy", "Victor Berlink"],
+    ["Maria Talia", "Alex Alves", null, "Heloiza", "Noara B."],
+    ["Thais Feitosa", "Ketlyn Melo", null, "Valeria", "Vitoria Silva"],
+    ["Vitoria Braga", "Taissa", null, "Lavinia", "João Filho"],
+    ["Marlon", "Mariana Barroso", "Zé Davi", "Francislayne", "Matheus Barreto"],
   ]);
 
   const [nomes2, setNomes2] = useState([
@@ -36,35 +36,53 @@ function App() {
   };
 
   const handleDrop = (grupo, row, col) => {
-    if (!dragInfo) return;
+  if (!dragInfo) return;
 
-    const getSetState = (grupo) => {
-      if (grupo === "nomes") return [nomes, setNomes];
-      if (grupo === "nomes2") return [nomes2, setNomes2];
-      if (grupo === "nomes3") return [nomes3, setNomes3];
-    };
-
-    const [listaOrig, setListaOrig] = getSetState(dragInfo.grupo);
-    const [listaDest, setListaDest] = getSetState(grupo);
-
-    // evita trocar com corredores
-    if (listaDest[row][col] === null) return;
-
-    // copia listas
-    const novaOrig = listaOrig.map((l) => [...l]);
-    const novaDest = listaDest.map((l) => [...l]);
-
-    // swap nomes
-    const temp = novaOrig[dragInfo.row][dragInfo.col];
-    novaOrig[dragInfo.row][dragInfo.col] = novaDest[row][col];
-    novaDest[row][col] = temp;
-
-    // salva estados
-    setListaOrig(novaOrig);
-    setListaDest(novaDest);
-
-    setDragInfo(null);
+  const getSetState = (grupo) => {
+    if (grupo === "nomes") return [nomes, setNomes];
+    if (grupo === "nomes2") return [nomes2, setNomes2];
+    if (grupo === "nomes3") return [nomes3, setNomes3];
+    return [null, null];
   };
+
+  const [listaOrig, setListaOrig] = getSetState(dragInfo.grupo);
+  const [listaDest, setListaDest] = getSetState(grupo);
+
+  if (!listaOrig || !listaDest) return;
+  if (listaDest[row][col] === null) return;
+  if (
+    dragInfo.grupo === grupo &&
+    dragInfo.row === row &&
+    dragInfo.col === col
+  ) {
+    setDragInfo(null);
+    return;
+  }
+  if (dragInfo.grupo === grupo) {
+   
+    const nova = listaOrig.map((l) => [...l]);
+    const r1 = dragInfo.row, c1 = dragInfo.col;
+    const r2 = row, c2 = col;
+    [nova[r1][c1], nova[r2][c2]] = [nova[r2][c2], nova[r1][c1]];
+
+    setListaOrig(nova); // só um set
+    setDragInfo(null);
+    return;
+  }
+  const novaOrig = listaOrig.map((l) => [...l]);
+  const novaDest = listaDest.map((l) => [...l]);
+
+  const origemNome = novaOrig[dragInfo.row][dragInfo.col];
+  const destinoNome = novaDest[row][col];
+
+  novaOrig[dragInfo.row][dragInfo.col] = destinoNome;
+  novaDest[row][col] = origemNome;
+
+  setListaOrig(novaOrig);
+  setListaDest(novaDest);
+
+  setDragInfo(null);
+};
 
   const renderGrid = (grupoNome, lista) => (
     <div className="sala">
@@ -93,6 +111,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Acentos - FIED SEDE</h1>
+
 
         <h3>Corredor</h3>
         {renderGrid("nomes", nomes)}
