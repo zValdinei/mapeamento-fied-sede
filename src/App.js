@@ -6,15 +6,15 @@ function App() {
   const [nomes, setNomes] = useState([
     ["Allana Souza", "Gabriel", null, null, "Jennifer"],
     ["Vitoria Oliveira", "Maria Beatriz", null, "Raiane", "Dalila"],
-    ["Karla Morais", "Antonio F.", null, "Valter", "Erivaldo"],
-    ["Antonio L.", "Biatriz Sandes", null, "Eduarda", "Tainá Rocha"],
-    ["Beatriz Mesquita", "Fernanda L.", null, "Lara Kezia", "Sofhia"],
+    ["Antonio F.", "Vitoria Silva", null, "Erivaldo", "Valter Lima"],
+    ["Antonio L.", "Laviania", null, "Eduarda Farias", "Tainá Rocha"],
+    ["Beatriz Mesquita", "Lara Kezia", null, "Valéria Silva", "Sofhia"],
     ["Maria Clara", "Lana Evelin", null, "Claudio G.", "Valdinei"],
-    ["Marcos Vinicius", "Letícia M.", null, "Grazy", "Victor Berlink"],
-    ["Maria Talia", "Alex Alves", null, "Heloiza", "Noara B."],
-    ["Thais Feitosa", "Ketlyn Melo", null, "Valeria", "Vitoria Silva"],
-    ["Vitoria Braga", "Taissa", null, "Lavinia", "João Filho"],
-    ["Marlon", "Mariana Barroso", "Zé Davi", "Francislayne", "Matheus Barreto"],
+    ["Leticia M.", "Marcos Vinicius", null, "Grazy", "Victor Berlink"],
+    ["Maria Talia", "Biatriz Sandes", null, "Heloiza", "Noara B."],
+    ["Thais Feitosa", "(Vazio)", null, "Francislayne", "Alex Alves"],
+    ["Vitoria Braga", "Taissa", null, "(Vazio)", "João Filho"],
+    ["Marlon", "Mariana Barroso", "Zé Davi", "Ketlyn Melo", "Matheus Barreto"],
   ]);
 
   const [nomes2, setNomes2] = useState([
